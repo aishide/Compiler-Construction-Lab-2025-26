@@ -1,0 +1,18 @@
+%{
+#include<stdio.h>
+int count_A=0;
+//Aishi
+
+%}
+%%
+[A][a-zA-Z0-9_]* {count_A++;}
+.|\n
+%%
+int yywrap(){
+return 1;
+}
+int main(){
+printf("enter a sentence: ");
+yylex();
+printf("Words: %d\n",count_A);
+}
